@@ -2,6 +2,7 @@ import React from 'react';
 import { useGetItinerariesMutation } from './Api/itineraryApi';
 import Spinner from './components/spinner';
 import { useEffect } from 'react';
+import Budget, { BudgetOption, BudgetProps } from './components/budget';
 
 export interface ItineraryEntry {
   date: string;
@@ -10,6 +11,7 @@ export interface ItineraryEntry {
 export interface TravelPlannerOutput {
   title: string;
   itinerary: ItineraryEntry[];
+  budget: BudgetOption[];
 }
 
 const isValidNumber = (value: string) => {
@@ -21,6 +23,7 @@ const isValidDate = (value: string) => {
   const date = new Date(value);
   return !isNaN(date.getTime()) && date > new Date();
 }
+
 
 function App() {
   const [from, setFrom] = React.useState('');
@@ -144,11 +147,13 @@ function App() {
           </article>
         ))}
       </main>
+      <div>
+        {itinerary?.budget && <Budget budget={itinerary?.budget} />}
+      </div>
       {itinerary && (<footer className="footer-strip">
         <div>
           <strong>Tip:</strong> Use this itinerary as a travel-ready outline and
-          personalize hotels, transport, and meal stops for the perfect {destination}
-           trip.
+          personalize hotels, transport, and meal stops for the perfect {destination} trip.
         </div>
       </footer> )}
       
