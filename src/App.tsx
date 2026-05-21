@@ -1,8 +1,10 @@
 import React from 'react';
 import { useGetItinerariesMutation } from './Api/itineraryApi';
 import Spinner from './components/spinner';
+import ErrorComponent from './components/error';
 import { useEffect } from 'react';
 import Budget, { BudgetOption, BudgetProps } from './components/budget';
+import { useState } from 'react';
 
 export interface ItineraryEntry {
   date: string;
@@ -26,21 +28,25 @@ const isValidDate = (value: string) => {
 
 
 function App() {
-  const [from, setFrom] = React.useState('');
-  const [destination, setDestination] = React.useState('');
-  const [duration, setDuration] = React.useState('');
-  const [startDate, setStartDate] = React.useState('');
-  const [itinerary, setItinerary] = React.useState<TravelPlannerOutput | null>(null);
+  const [from, setFrom] = useState('');
+  const [destination, setDestination] = useState('');
+  const [fromToShown, setFromToShown] = useState('');
+  const [destinationToShown, setDestinationToShown] = useState('');
+  const [duration, setDuration] = useState('');
+  const [startDate, setStartDate] = useState('');
+  const [itinerary, setItinerary] = useState<TravelPlannerOutput | null>(null);
   const [travelPlannerApi, { isLoading, error }] = useGetItinerariesMutation();
-  const [disabled, setDisabled] = React.useState(true);
-  const [durationError, setDurationError] = React.useState('');
-  const [dateError, setDateError] = React.useState('');
+  const [disabled, setDisabled] = useState(true);
+  const [durationError, setDurationError] = useState('');
+  const [dateError, setDateError] = useState('');
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     console.log({ from, destination, duration, startDate });
     const response = await travelPlannerApi({ location: from, destination, duration, start_date: startDate });
     console.log(response);
     setItinerary(response.data);
+    setFromToShown(from);
+    setDestinationToShown(destination);
   };
   useEffect(() => {
     if (from && destination && duration && startDate && isValidNumber(duration) && isValidDate(startDate)) {
@@ -65,6 +71,25 @@ function App() {
       setDateError('');
     }
   }, [startDate]);
+
+  const formatErrorMessage = (error: unknown) => {
+    if (!error) return '';
+
+    if (typeof error === 'string') {
+      return error;
+    }
+
+    if (typeof error === 'object' && error !== null) {
+      const err = error as Record<string, unknown>;
+      if (typeof err.error === 'string') return err.error;
+      if (typeof err.data === 'string') return err.data;
+      if (err.status) return `Server responded with ${String(err.status)}.`;
+    }
+
+    return 'Unable to fetch itinerary. Please try again.';
+  };
+
+  const errorMessage = formatErrorMessage(error);
 
   return (
     <div className="page-shell">
@@ -116,18 +141,21 @@ function App() {
         </div>
       </section>
 
-      {isLoading ? (<Spinner/> ) 
-      : (
+      {isLoading ? (
+        <Spinner />
+      ) : error ? (
+        <ErrorComponent message={errorMessage} />
+      ) : (
         <div>
-        
+
         {itinerary && (
         <header className="hero-panel">
           <div>
             <p className="eyebrow">Travel Itinerary Planner</p>
             <h1>{itinerary.title}</h1>
             <p className="hero-copy">
-              Discover a polished, day-by-day journey from {from} to{" "}
-              {destination} with sightseeing, trains, and culture built into a
+              Discover a polished, day-by-day journey from {fromToShown} to{" "}
+              {destinationToShown} with sightseeing, trains, and culture built into a
               clear travel timeline.
             </p>
           </div>
