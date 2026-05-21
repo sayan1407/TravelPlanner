@@ -16,6 +16,11 @@ export interface TravelPlannerOutput {
   budget: BudgetOption[];
 }
 
+export interface ErrorDetails {
+
+     detail: string;
+}
+
 const isValidNumber = (value: string) => {
 
   return value.trim() !== '' && !isNaN(Number(value)) && Number(value) > 0 && Number(value) <= 30;
@@ -79,11 +84,13 @@ function App() {
       return error;
     }
 
-    if (typeof error === 'object' && error !== null) {
-      const err = error as Record<string, unknown>;
-      if (typeof err.error === 'string') return err.error;
-      if (typeof err.data === 'string') return err.data;
-      if (err.status) return `Server responded with ${String(err.status)}.`;
+    if (typeof error === "object" && error !== null) {
+      const err = error as Record<string, ErrorDetails>;
+      if (typeof err.data == "object") {
+        const details = err.data as ErrorDetails;
+        if(details.detail?.includes("Guardrail")) 
+          return "Please enter valid location and destination names.";
+      }
     }
 
     return 'Unable to fetch itinerary. Please try again.';
