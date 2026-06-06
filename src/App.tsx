@@ -2,6 +2,7 @@ import React from 'react';
 import { useGetItinerariesMutation } from './Api/itineraryApi';
 import Spinner from './components/spinner';
 import ErrorComponent from './components/error';
+import Footer from './components/footer';
 import { useEffect } from 'react';
 import Budget, { BudgetOption, BudgetProps } from './components/budget';
 import { useState } from 'react';
@@ -185,15 +186,10 @@ function App() {
       <div>
         {itinerary?.budget && <Budget budget={itinerary?.budget} />}
       </div>
-      {itinerary && (<footer className="footer-strip">
-        <div>
-          <strong>Tip:</strong> Use this itinerary as a travel-ready outline and
-          personalize hotels, transport, and meal stops for the perfect {destination} trip.
-        </div>
-      </footer> )}
       
       </div>
       )}
+      <Footer showTip={!!itinerary} destination={destination} />
     </div>
   );
 }

@@ -25,7 +25,7 @@ button, input, textarea {
 
 .page-shell {
   min-height: 100vh;
-  padding: 2rem 1.5rem 3rem;
+  padding: 2rem 1.5rem 6rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -133,18 +133,42 @@ button, input, textarea {
   line-height: 1;
 }
 
+.footer-outer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  background: rgba(15, 23, 42, 0.95);
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  justify-content: center;
+  z-index: 40;
+}
+
 .footer-strip {
   max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
-  background: rgba(15, 23, 42, 0.95);
-  border: 1px solid rgba(148, 163, 184, 0.14);
-  border-radius: 22px;
-  padding: 1.25rem 1.5rem;
+  background: transparent;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
   color: #cbd5e1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .footer-strip strong {
   color: #f8fafc;
+}
+
+.footer-credit {
+  margin-top: 0.5rem;
+  text-align: right;
+  color: #94a3b8;
+  font-size: 0.9rem;
 }
 
 .travel-form-section {
