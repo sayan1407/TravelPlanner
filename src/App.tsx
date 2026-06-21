@@ -47,7 +47,7 @@ function App() {
   const [dateError, setDateError] = useState('');
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log({ from, destination, duration, startDate });
+    //console.log({ from, destination, duration, startDate });
     const response = await travelPlannerApi({ location: from, destination, duration, start_date: startDate });
     console.log(response);
     setItinerary(response.data);
