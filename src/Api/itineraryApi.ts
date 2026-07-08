@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const itineraryApi = createApi({
   reducerPath: "apiItinerary",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://travelagentapi-dtagfjaxbvhybmeg.canadacentral-01.azurewebsites.net/travel/",
+    baseUrl: "https://travel-agent-api-nine.vercel.app/travel/",
 
   }),
   tagTypes: ["Itineraries"],
