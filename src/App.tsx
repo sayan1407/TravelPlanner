@@ -5,6 +5,7 @@ import ErrorComponent from './components/error';
 import Footer from './components/footer';
 import { useEffect } from 'react';
 import Budget, { BudgetOption, BudgetProps } from './components/budget';
+import FlightDetails from './components/flightdetails';
 import { useState } from 'react';
 
 export interface ItineraryEntry {
@@ -168,6 +169,7 @@ function App() {
             </p>
           </div>
         </header>
+        <FlightDetails from={fromToShown} to={destinationToShown} date={startDate} onBook={() => window.open('https://www.google.com/flights', '_blank')} />
        
       )} 
       <main className="timeline-grid">
