@@ -8,6 +8,8 @@ import Budget, { BudgetOption, BudgetProps } from "./components/budget";
 import FlightDetailsContainer from "./components/flightdetailscontainer";
 import { ManageFlightsOutput } from "./components/flightdetails";
 import { useState } from "react";
+import HotelDetailsContainer from "./components/hoteldetailscontainer";
+import { ManageHotelsOutput } from "./components/hoteldetails";
 
 export interface ItineraryEntry {
   date: string;
@@ -21,7 +23,8 @@ export interface TravelPlannerOutput {
 
 export interface TravelPlannerFinalOutput {
   travelPlannerOutput : TravelPlannerOutput
-  manageFlightsOutput : ManageFlightsOutput
+  manageFlightsOutput : ManageFlightsOutput,
+  manageHotelsOutput : ManageHotelsOutput
 }
 
 export interface ErrorDetails {
@@ -219,6 +222,11 @@ function App() {
           {itinerary?.manageFlightsOutput?.flight_booking_required && (
             <FlightDetailsContainer
               flights={itinerary.manageFlightsOutput.flight_details}
+            />
+          )}
+          {itinerary?.manageHotelsOutput?.hotel_booking_required && (
+            <HotelDetailsContainer
+              hotels={itinerary.manageHotelsOutput.hotel_details}
             />
           )}
         </div>
