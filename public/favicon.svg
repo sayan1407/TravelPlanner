@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">Travel Itinerary Planner</title>
+  <desc id="desc">A cyan route marker on a dark navy background</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1e3a8a"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#a5f3fc"/>
+      <stop offset="1" stop-color="#06b6d4"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="url(#bg)"/>
+  <path d="M17 18h30v28H17z" fill="none" stroke="#38bdf8" stroke-opacity=".18" stroke-width="2"/>
+  <path d="M21 43c7-2 8-10 13-13 4-3 7-2 9-8" fill="none" stroke="url(#accent)" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+  <circle cx="21" cy="43" r="5" fill="#0f172a" stroke="#a5f3fc" stroke-width="3"/>
+  <path d="M43 12c-5.2 0-9.5 4.2-9.5 9.4 0 6.8 9.5 16.6 9.5 16.6S52.5 28.2 52.5 21.4C52.5 16.2 48.2 12 43 12Z" fill="url(#accent)"/>
+  <circle cx="43" cy="21.2" r="3.2" fill="#0f172a"/>
+</svg>
