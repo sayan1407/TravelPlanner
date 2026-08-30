@@ -1,22 +1,6 @@
 import React from 'react';
 import './budget.css';
-
-export interface BudgetBreakdown {
-  accommodation: string;
-  food: string;
-  activities: string;
-  transportation: string;
-}
-
-export interface BudgetOption {
-  budget_type: 'budget' | 'mid-range' | 'luxury';
-  estimate: number;
-  breakdown: BudgetBreakdown;
-}
-
-export interface BudgetProps {
-  budget: BudgetOption[];
-}
+import type { BudgetProps } from '../interface';
 
 const Budget: React.FC<BudgetProps> = ({ budget }) => {
   const getBudgetIcon = (budgetType: string): string => {

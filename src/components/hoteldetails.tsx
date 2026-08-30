@@ -1,21 +1,5 @@
 import React from 'react';
-
-export interface HotelDetailsProps {
-  from_date: string;
-  to_date: string;
-  location : string;
-}
-
-interface ManageHotels{
-    from_date: string;
-  to_date: string;
-  location : string;
-}
-
-export interface ManageHotelsOutput{
-    hotel_booking_required: boolean
-    hotel_details: ManageHotels[]
-}
+import type { HotelDetailsProps } from '../interface';
 const HotelDetails: React.FC<HotelDetailsProps> = ({
   from_date,
   to_date,

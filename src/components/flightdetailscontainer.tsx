@@ -1,9 +1,6 @@
 import React from 'react';
-import FlightDetails, { ManageFlightsOutput } from './flightdetails';
-
-interface FlightDetailsContainerProps {
-  flights: ManageFlightsOutput['flight_details'];
-}
+import FlightDetails from './flightdetails';
+import type { FlightDetailsContainerProps } from '../interface';
 
 const FlightDetailsContainer: React.FC<FlightDetailsContainerProps> = ({ flights }) => {
   return (

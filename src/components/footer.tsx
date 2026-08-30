@@ -1,10 +1,5 @@
 import React from 'react';
-
-interface FooterProps {
-  destination?: string;
-  showTip?: boolean;
-  creditText?: string;
-}
+import type { FooterProps } from '../interface';
 
 const Footer: React.FC<FooterProps> = ({ destination, showTip = false, creditText = '@Sayan Saha production' }) => {
   return (

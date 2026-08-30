@@ -4,32 +4,11 @@ import Spinner from "./components/spinner";
 import ErrorComponent from "./components/error";
 import Footer from "./components/footer";
 import { useEffect } from "react";
-import Budget, { BudgetOption, BudgetProps } from "./components/budget";
+import Budget from "./components/budget";
 import FlightDetailsContainer from "./components/flightdetailscontainer";
-import { ManageFlightsOutput } from "./components/flightdetails";
 import { useState } from "react";
 import HotelDetailsContainer from "./components/hoteldetailscontainer";
-import { ManageHotelsOutput } from "./components/hoteldetails";
-
-export interface ItineraryEntry {
-  date: string;
-  activities: string[];
-}
-export interface TravelPlannerOutput {
-  title: string;
-  itinerary: ItineraryEntry[];
-  budget: BudgetOption[];
-}
-
-export interface TravelPlannerFinalOutput {
-  travelPlannerOutput : TravelPlannerOutput
-  manageFlightsOutput : ManageFlightsOutput,
-  manageHotelsOutput : ManageHotelsOutput
-}
-
-export interface ErrorDetails {
-  detail: string;
-}
+import type { ErrorDetails, TravelPlannerFinalOutput } from "./interface";
 
 const isValidNumber = (value: string) => {
   return (

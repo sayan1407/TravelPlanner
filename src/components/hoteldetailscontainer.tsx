@@ -1,10 +1,6 @@
 import React from 'react';
-import FlightDetails, { ManageFlightsOutput } from './flightdetails';
-import HotelDetails , {ManageHotelsOutput} from './hoteldetails';
-
-interface HotelDetailsContainerProps {
-  hotels: ManageHotelsOutput['hotel_details'];
-}
+import HotelDetails from './hoteldetails';
+import type { HotelDetailsContainerProps } from '../interface';
 
 const HotelDetailsContainer: React.FC<HotelDetailsContainerProps> = ({ hotels }) => {
   return (

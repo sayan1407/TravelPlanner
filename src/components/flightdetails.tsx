@@ -1,25 +1,5 @@
 import React from 'react';
-
-export interface FlightDetailsProps {
-  from: string;
-  to: string;
-  travelDate: string;
-  from_location_airport_code: string;
-  to_location_airport_code: string;
-}
-
-interface ManageFlights{
-    date: string
-    from_location : string
-    from_location_airport_code : string
-    to_location : string
-    to_location_airport_code : string
-}
-
-export interface ManageFlightsOutput{
-    flight_booking_required: boolean
-    flight_details: ManageFlights[]
-}
+import type { FlightDetailsProps } from '../interface';
 const FlightDetails: React.FC<FlightDetailsProps> = ({
   from,
   to,
