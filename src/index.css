@@ -25,7 +25,7 @@ button, input, textarea {
 
 .page-shell {
   min-height: 100vh;
-  padding: 2rem 1.5rem 6rem;
+  padding: 2rem 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -399,34 +399,41 @@ button, input, textarea {
 }
 
 .footer-outer {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
   width: 100%;
-  background: rgba(15, 23, 42, 0.95);
-  padding: 0.75rem 1.5rem;
+  max-width: 1200px;
+  margin: auto auto 0;
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: 20px;
+  padding: 1.1rem 1.5rem;
   display: flex;
   justify-content: center;
-  z-index: 40;
+  box-shadow: 0 12px 36px rgba(15, 23, 42, 0.3);
 }
 
 .footer-strip {
-  max-width: 1200px;
   width: 100%;
-  margin: 0 auto;
   background: transparent;
   border: none;
-  border-radius: 0.5rem;
-  padding: 0.5rem 1rem;
   color: #cbd5e1;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  text-align: center;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.footer-tip {
+  max-width: 960px;
+  margin: 0 auto;
 }
 
 .footer-strip strong {
-  color: #f8fafc;
+  color: #38bdf8;
+  margin-right: 0.35rem;
 }
 
 .footer-credit {
@@ -601,7 +608,8 @@ button, input, textarea {
 
 @media (max-width: 600px) {
   .page-shell {
-    padding: 1.5rem 1rem 2rem;
+    padding: 1.25rem 1rem 1.5rem;
+    gap: 1.5rem;
   }
 
   .hero-panel {
@@ -626,5 +634,17 @@ button, input, textarea {
   .submit-button {
     width: 100%;
     padding: 0.85rem 1.5rem;
+  }
+
+  .footer-outer {
+    padding: 0.9rem 1rem;
+    border-radius: 16px;
+    margin-top: 1rem;
+  }
+
+  .footer-strip {
+    font-size: 0.875rem;
+    line-height: 1.55;
+    text-align: center;
   }
 }

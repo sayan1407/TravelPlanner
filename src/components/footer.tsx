@@ -2,15 +2,17 @@ import React from 'react';
 import type { FooterProps } from '../interface';
 
 const Footer: React.FC<FooterProps> = ({ destination, showTip = false, creditText = '@Sayan Saha production' }) => {
+  if (!showTip) {
+    return null;
+  }
+
   return (
     <div className="footer-outer">
       <footer className="footer-strip">
-        {showTip && (
-          <div>
-            <strong>Tip:</strong> Use this itinerary as a travel-ready outline and
-            personalize hotels, transport, and meal stops for the perfect {destination || 'trip'}.
-          </div>
-        )}
+        <div className="footer-tip">
+          <strong>Tip:</strong> Use this itinerary as a travel-ready outline and
+          personalize hotels, transport, and meal stops for the perfect {destination || 'trip'}.
+        </div>
         {/* <div className="footer-credit">{creditText}</div> */}
       </footer>
     </div>
