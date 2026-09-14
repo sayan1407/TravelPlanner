@@ -14,8 +14,8 @@ const FlightDetails: React.FC<FlightDetailsProps> = ({
         year: 'numeric',
       })
     : 'Select a date';
-  const fromAirport = from_location_airport_code === '' || from_location_airport_code.length === 0 ? from : from_location_airport_code;
-  const toAirport = to_location_airport_code === '' || to_location_airport_code.length === 0 || to_location_airport_code === undefined ? to : to_location_airport_code;
+  // const fromAirport = from_location_airport_code === '' || from_location_airport_code.length === 0 ? from : from_location_airport_code;
+  // const toAirport = to_location_airport_code === '' || to_location_airport_code.length === 0 || to_location_airport_code === undefined ? to : to_location_airport_code;
   return (
     <section className="flight-details-panel">
       <div className="flight-route">
@@ -40,7 +40,7 @@ const FlightDetails: React.FC<FlightDetailsProps> = ({
           <strong>{formattedDate}</strong>
         </div>
 
-        <button type="button" className="flight-book-button" onClick={() => window.open(`https://www.google.com/travel/flights?q=One%20way%20flights%20from%20${fromAirport}%20to%20${toAirport}%20on%20${travelDate}`, '_blank')}>
+        <button type="button" className="flight-book-button" onClick={() => window.open(`https://www.google.com/travel/flights?q=One%20way%20flights%20from%20${from}%20to%20${to}%20on%20${travelDate}`, '_blank')}>
           Book flight
         </button>
       </div>
