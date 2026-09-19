@@ -210,7 +210,8 @@ function App() {
           )}
         </div>
       )}
-      <Footer showTip={!!itinerary} destination={destination} />
+      {!isLoading && <Footer destination={destination} showTip={!!itinerary} />}
+      
     </div>
   );
 }

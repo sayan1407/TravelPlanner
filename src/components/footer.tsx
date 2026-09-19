@@ -13,7 +13,7 @@ const Footer: React.FC<FooterProps> = ({ destination, showTip = false, creditTex
           <strong>Tip:</strong> Use this itinerary as a travel-ready outline and
           personalize hotels, transport, and meal stops for the perfect {destination || 'trip'}.
         </div>
-        {/* <div className="footer-credit">{creditText}</div> */}
+        <div className="footer-credit">{creditText}</div>
       </footer>
     </div>
   );
